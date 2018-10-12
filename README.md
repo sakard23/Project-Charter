@@ -1,3 +1,3 @@
-# Project-Charter
-Senior Design Project Charter
-this is just a testing
+# YAML
+here is the basic simple concept for swagger YAML
+This is similar to JSON.
