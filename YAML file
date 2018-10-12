@@ -1,0 +1,84 @@
+#yaml file has extension .yaml or .yml
+
+#lets make a person object, with all those value
+person:
+
+  #for string can use ("")double quotation
+  name: "jake"
+
+  #also for sting can use ('') single quotation
+  occupation: 'engr'
+  
+  #another string example, to anchor or reference this city value somewhere else, add (&)andpersend
+  city: &city "SanMarino" 
+
+  #for interger, just value
+  age: 27
+  
+  #another integer example, to show to can be changed into another type by adding !! and
+  # by declaring to which type we want it to get converted
+  weight: !!float 55 #gives 55.0
+  weight: !!str 55 #gives "55"
+  
+  #for float/double, can use just number
+  height: 5.11
+
+  #for boolean, just use true or false
+  male: true
+
+  #for date format, can use YYYY-MM-DD with time HH:MM:SS
+  birthday: 1992-07-07 11:49:37
+
+  #for null value, can just write null
+  flaws: null
+  
+  #for listing items, we can use hyphen(-) to list all the vlaues
+  hobbies:
+    - playing guitar
+    - singing
+    - riding bike
+    
+  #for listing, also we can write insode [] square brancket
+  movies: ["SkyFall", "Dark", "2012"]
+  
+  #for nested lising
+  friends:
+    - name: "John"
+      age: 26
+      
+  #for nested listing in another way  
+  - {name: "James", age:29}
+   
+  #3rd way to created nested listing
+  -
+    name: "Jammey"
+    age: 25
+    
+  #for long description, here (>) this symbol tells YAMl to output description in a single line
+  description: >
+    Just a big long description about the description.
+    Don't have any clue what this discription is about.
+    Just writing something very cool and discriptive about the
+    description filed.
+    
+  #for long discripton, here (|) will tells YAML to show the input as per new line, or just as inputed style
+  description: |
+    Chester
+    Chester Academy
+    email - chester.bennington@linkinpark.com
+    
+  #to access person's city through reference, use (*)
+  id: *city  ##this will give the city as SanMarino
+  
+  #we can also reference the entire arrays or list
+  base: &base
+    var1: value1
+    
+    #so if we have new object, in this case root, it can access full base value using (*) in front of the referenced value
+    root:
+      <<: *base  #will give var1: value1
+      var2: value2
+#so to get access to any specific properties of tht person,
+#we can simply do====> person.name (to get name)
+                       person.age (to get person's age)
+                       
